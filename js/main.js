@@ -926,15 +926,18 @@
 
     if ($('.progress-bar').length) {
         $(document).on('appear', '.progress-bar', function (e) {
+            const unit = $(this).attr('unit') || '%';
+            const total = $(this).attr('unit') ? '98' : $(this).attr('aria-valuenow');
+            const progressBarSize =  $(this).attr('unit') ? $(this).attr('aria-valuenow') : total;
+            const delay = 300;
             if (!$(this).hasClass('appear')) {
                 $(this).addClass('appear');
-                var total = $(this).attr('aria-valuenow'), delay = 300;
                 $(this).animate({'width': total + '%'}, {
                     duration: delay,
                     easing: "swing",
                     progress: function (animation, progress, msRemaining) {
                         var counter = parseInt(total * progress);
-                        $(this).find('span').html(counter + '%');
+                        $(this).find('span').html(progressBarSize + unit);
                     }
                 });
             }

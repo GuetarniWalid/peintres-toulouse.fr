@@ -5,13 +5,13 @@ if( ! empty( $_POST['email'] ) ) {
 	$enable_smtp = 'no'; // yes OR no
 
 	// Email Receiver Address
-	$receiver_email = 'info@domain.com';
+	$receiver_email = 'contact@peintres-toulouse.fr';
 
 	// Email Receiver Name for SMTP Email
-	$receiver_name 	= 'Your Name';
+	$receiver_name 	= 'Contact peintres-toulouse.fr';
 
 	// Email Subject
-	$subject = 'Contact form details';
+	$subject = 'Formulaire de contacte : peintres-toulouse.fr';
 
 	// Google reCaptcha secret Key
 	$grecaptcha_secret_key = 'YOUR_SECRET_KEY';
@@ -36,12 +36,12 @@ if( ! empty( $_POST['email'] ) ) {
 		// verify the response
 		if( isset( $_POST['action'] ) && ! ( isset( $arrResponse['success'] ) && $arrResponse['success'] == '1' && $arrResponse['action'] == $_POST['action'] && $arrResponse['score'] = 0.5 ) ) {
 
-			echo '{ "alert": "alert-danger", "message": "Your message could not been sent due to invalid reCaptcha!" }';
+			echo '{ "alert": "alert-danger", "message": "Votre message n\'a pas été envoyé en raison d\'un reCaptcha invalide!" }';
 			die;
 
 		} else if( ! isset( $_POST['action'] ) && ! ( isset( $arrResponse['success'] ) && $arrResponse['success'] == '1' ) ) {
 
-			echo '{ "alert": "alert-danger", "message": "Your message could not been sent due to invalid reCaptcha!" }';
+			echo '{ "alert": "alert-danger", "message": "Votre message n\'a pas été envoyé en raison d\'un reCaptcha invalide!" }';
 			die;
 		}
 	}
@@ -86,7 +86,7 @@ if( ! empty( $_POST['email'] ) ) {
 			<body>
 				<table width="50%" border="0" align="center" cellpadding="0" cellspacing="0">
 				<tr>
-				<td colspan="2" align="center" valign="top"><img style="margin-top: 15px;" src="http://www.yourdomain.com/images/logo-email.png" ></td>
+				<td colspan="2" align="center" valign="top"><img style="margin-top: 15px;" src="https://peintres-toulouse.fr/images/logo-peintre-toulouse.svg" ></td>
 				</tr>
 				<tr>
 				<td width="50%" align="right">&nbsp;</td>
@@ -113,10 +113,10 @@ if( ! empty( $_POST['email'] ) ) {
 				}
 
 			   	//Success Message
-			  	echo '{ "alert": "alert alert-success alert-dismissable", "message": "Your message has been sent successfully!" }';
+			  	echo '{ "alert": "alert alert-success alert-dismissable", "message": "Votre message a été envoyé avec succès!" }';
 			} else {
 				//Fail Message
-			  	echo '{ "alert": "alert alert-danger alert-dismissable", "message": "Your message could not been sent!" }';
+			  	echo '{ "alert": "alert alert-danger alert-dismissable", "message": "Votre message n\'a pas été envoyé!" }';
 			}
 			
 		} else { // SMTP
@@ -161,14 +161,14 @@ if( ! empty( $_POST['email'] ) ) {
 				}
 
 			   	//Success Message
-			  	echo '{ "alert": "alert alert-success alert-dismissable", "message": "Your message has been sent successfully!" }';
+			  	echo '{ "alert": "alert alert-success alert-dismissable", "message": "Votre message a été envoyé avec succès!" }';
 			} else {
 				//Fail Message
-			  	echo '{ "alert": "alert alert-danger alert-dismissable", "message": "Your message could not been sent!" }';
+			  	echo '{ "alert": "alert alert-danger alert-dismissable", "message": "Votre message n\'a pas été envoyé!" }';
 			}
 		}
 	}
 } else {
 	//Empty Email Message
-	echo '{ "alert": "alert alert-danger alert-dismissable", "message": "Please add an email address!" }';
+	echo '{ "alert": "alert alert-danger alert-dismissable", "message": "Veuillez ajouter une adresse email!" }';
 }
