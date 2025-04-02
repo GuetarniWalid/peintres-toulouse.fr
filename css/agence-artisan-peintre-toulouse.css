@@ -209,3 +209,25 @@ footer .footer-logo img {
 .text-right {
     text-align: right;
 }
+
+/* team member */
+@media (max-width: 575px) {
+    .team-style-10.mobile figure figcaption {
+        opacity: 1;
+    }
+    .team-style-10.mobile figure figcaption .team-member-strip {
+        transform: translate3d(0, 0, 0);
+        -webkit-transform: translate3d(0, 0, 0);
+    }
+    .team-style-10.mobile figure figcaption .team-member-strip .team-member-name {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+    .team-style-10.mobile figure figcaption .team-member-strip .member-designation {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+
